@@ -1,0 +1,3 @@
+{% for keep in keep_list %}
+  <p><a href='{% url "blog:detail" keep.article.id %}'>{{ keep.article }}</a></P>
+{% endfor %}

@@ -1,0 +1,16 @@
+<h1>{{ article.title }}</h1>
+<p>{{ article.author}}</p>
+<p>{{ article.content }}</p>
+<p>{{ article.pub_date }}</p>
+<p>{{ article.likes }}</p>
+<p>{{ article.comments }} </p>
+{% for comment in article.comtent_set.all %}
+   {{ comment.content }}
+   {{ comment.user }}
+{% endfor %}
+<form action='blog:comment' method='post'>
+    {% csrf_token %}
+   写评论：
+    <input type='text' name='comtext' />
+   <input type='submit' value='提交' />
+</form>

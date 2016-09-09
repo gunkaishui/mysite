@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title>welcome</title>
+</head>
+
+<body>
+  <form action='{% url "blog:login" %}' method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+   <input type='submit' value='登陆' />
+  </form>
+
+ <a href='{% url "blog:register" %}'>注册</a>

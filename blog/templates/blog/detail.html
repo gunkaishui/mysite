@@ -1,0 +1,19 @@
+<a href='{% url "blog:logout" %}'>退出</a>
+<h1>{{ article.title }}</h1>
+<p>{{ article.author}}</p>
+<p>{{ article.content }}</p>
+<p>{{ article.pub_date }}</p>
+<p>评论总数：{{ article.comments }} </p>
+<p>收藏数：{{ article.keeps }} </p>
+<a href='{% url "blog:keep" article.id %}'>收藏</a>
+<p><a href='{% url "blog:like" article.id %}'>Like</a>:{{ article.likes }}</p>
+{% for comment in article.comtent_set.all %}
+<p>   {{ comment.content }}
+   {{ comment.user }}</p>
+{% endfor %}
+<form action='{% url "blog:comment" article.id  %}' method='post'>
+    {% csrf_token %}
+   写评论：
+    <input type='text' name='comtext' />
+   <input type='submit' value='提交' />
+</form>

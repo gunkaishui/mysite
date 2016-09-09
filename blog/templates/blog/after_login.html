@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>My Blog</title>
+</head>
+
+<body>
+<p>欢迎 {{ request.user.username }} </p>
+<a href='{% url "blog:mycomment" %}'>我的评论</a>
+<a href='{% url "blog:mykeep" %}'>我的收藏</a>
+
+{% for article in article_list %}
+  <a href='{% url "blog:detail" article.id  %}'>{{article.title}}</a>
+{% endfor %}
+</body>
+</html>
