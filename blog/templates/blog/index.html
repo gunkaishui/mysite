@@ -1,8 +1,11 @@
 <html>
 <head>
   <title>welcome</title>
+  <style type='text/css'>
+   a:hover{ color:red;}
+  </style>
 </head>
-
+<p> {{ msg }} </p>
 <body>
   <form action='{% url "blog:login" %}' method='post'>
     {% csrf_token %}
@@ -10,4 +13,5 @@
    <input type='submit' value='登陆' />
   </form>
 
- <a href='{% url "blog:register" %}'>注册</a>
+ <a href='{% url "blog:register" %}' title='点击注册账户' target='_blank'>注册</a>
+<a href='mailto:522741251@qq.com'>lianxi</a>
